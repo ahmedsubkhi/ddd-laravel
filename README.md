@@ -149,3 +149,22 @@ Note: Where `1` is the topic ID
 
 
 
+### Topic-news collection
+* Add
+```
+curl -X POST \
+  http://localhost:8000/api/newstopic \
+  -H 'cache-control: no-cache' \
+  -F topic_id=2 \
+  -F news_id=1
+```
+
+* Delete
+```
+curl -X DELETE \
+  http://localhost:8000/api/newstopic/2 \
+  -H 'cache-control: no-cache'
+```
+Note: Where `1` is the news-topic ID
+
+
