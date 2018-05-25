@@ -83,8 +83,12 @@ class NewsTopicController extends Controller
     public function destroy($id)
     {
         $topic = $this->topic;
-        $topic->delete($id);
+        $res = $topic->delete($id);
 
-        return 204;
+        if($res){
+			return 'Delete success';
+		} else {
+			return 'Delete failed';
+		}
     }
 }

@@ -86,8 +86,8 @@ class NewsRepository
 	 *
 	 * @return boolean
 	 */
-	public function softdelete($id)
+	public function delete($id)
 	{
-		return $this->model->find($id)->update(['status' => 'deleted']);
+		return $this->model->find($id)->delete();
 	}
 }

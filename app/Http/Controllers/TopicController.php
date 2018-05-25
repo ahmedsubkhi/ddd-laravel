@@ -69,9 +69,13 @@ class TopicController extends Controller
     public function update(Request $request, $id)
     {
         $topic = $this->topic;
-        $topic->update($request->all());
-
-        return $topic;
+        $res = $topic->update($id, $request->all());
+		
+		if($res){
+			return 'Update success';
+		} else {
+			return 'Update failed';
+		}
     }
 
     /**
@@ -83,8 +87,12 @@ class TopicController extends Controller
     public function destroy($id)
     {
         $topic = $this->topic;
-        $topic->delete();
+        $res = $topic->delete($id);
 
-        return 204;
+		if($res){
+			return 'Delete success';
+		} else {
+			return 'Delete failed';
+		}
     }
 }

@@ -75,9 +75,12 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $news = $this->news;
-        $news->update($request->all());
-
-        return $news;
+		$res = $news->update($id, $request->all());
+		if($res){
+			return 'Update success';
+		} else {
+			return 'Update failed';
+		}
     }
 
     /**
@@ -89,8 +92,12 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = $this->news;
-        $news->softdelete($id);
+        $res = $news->delete($id);
 
-        return 204;
+		if($res){
+			return 'Delete success';
+		} else {
+			return 'Delete failed';
+		}
     }
 }
