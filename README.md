@@ -1,5 +1,11 @@
 # Domain Driven example with Laravel
 
+## Requirements
+* PHP >= 7.1.17
+* Laravel Framework >= 5.6.23
+* Laravel Installer >= 2.0.1
+* Composer version >= 1.4.2
+
 ## How to install
 ```
 $ git clone https://github.com/ahmedsubkhi/ddd-laravel.git
