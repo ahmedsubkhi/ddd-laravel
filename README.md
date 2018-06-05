@@ -1,5 +1,11 @@
 # Domain Driven example with Laravel
 
+## Requirements
+* PHP >= 7.1.17
+* Laravel Framework >= 5.6.23
+* Laravel Installer >= 2.0.1
+* Composer version >= 1.4.2
+
 ## How to install
 ```
 $ git clone https://github.com/ahmedsubkhi/ddd-laravel.git
@@ -7,7 +13,7 @@ $ cd ddd-laravel
 $ composer install
 $ cp .env.example .env
 ```
-Edit `.env` file, edit PostgreSQL database connection and save it.
+Edit `.env` file, edit PostgreSQL database connection `PRODUCTION` and save it.
 ```
 $ php artisan key:generate
 $ php artisan migrate
@@ -16,7 +22,7 @@ $ php artisan serve
 ```
 Go to [http://localhost:8000](http://localhost:8000)
 
-## How to use
+## How to use the services
 
 #### News collection
 
@@ -166,5 +172,35 @@ curl -X DELETE \
   -H 'cache-control: no-cache'
 ```
 Note: Where `1` is the news-topic ID
+
+
+## How to Unit Test
+
+#### Create database for `TESTING`
+
+#### Copy .env setting for testing environment laravel config
+```
+$ cp .env.example .env.testing
+```
+
+#### Edit `.env.testing` until look like this
+
+```
+APP_ENV=testing
+
+DB_DATABASE=news_testing
+DB_USERNAME=your_postgresql_db_username
+DB_PASSWORD=your_postgresql_db_password
+```
+
+#### Then migrate database
+```
+$ php artisan migrate --env=testing
+$ php artisan db:seed --env=testing
+```
+#### Then test it
+```
+$ ./vendor/bin/phpunit
+```
 
 
